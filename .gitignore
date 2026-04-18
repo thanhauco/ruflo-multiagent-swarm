@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Tooling
+.ruff_cache/
+.mypy_cache/
+
+# Secrets / runtime
+.env
+out/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Ruflo runtime memory
+.ruflo-memory.json
+
