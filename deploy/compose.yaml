@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  ruflo-api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    volumes:
+      - ../out:/app/out

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruflo Swarm Console</title>
+    <link rel="stylesheet" href="/ui/styles.css" />
+  </head>
+  <body>
+    <div id="root">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo">RU</span>
+          <div>
+            <h1>Ruflo Swarm Console</h1>
+            <p>Distributed multi-LLM agentic SDLC platform</p>
+          </div>
+        </div>
+        <div class="status" id="health">
+          <span class="dot"></span>
+          <span class="label">checking...</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel launch">
+          <h2>Launch a run</h2>
+          <p class="hint">Describe the product you want the swarm to build.</p>
+          <textarea id="goal" placeholder="Build a scalable GPU telemetry dashboard with FastAPI + React."></textarea>
+          <label class="checkline">
+            <input id="waitMode" type="checkbox" />
+            <span>Wait for completion</span>
+          </label>
+          <div class="actions">
+            <button id="launch" type="button">Launch Swarm</button>
+            <button id="replay" class="ghost" type="button" disabled>Replay Branch</button>
+            <span id="launchStatus" class="muted"></span>
+          </div>
+
+          <h3>Recent runs</h3>
+          <ul id="runs" class="run-list"></ul>
+
+          <h3>2026 features</h3>
+          <ul id="features" class="feature-list"></ul>
+        </section>
+
+        <section class="panel run">
+          <header class="run-header">
+            <div>
+              <h2 id="runTitle">No run selected</h2>
+              <p id="runMeta" class="muted">Pick a run on the left or launch a new one.</p>
+            </div>
+            <div class="badges">
+              <span id="runStatus" class="badge">idle</span>
+              <span id="runArtifacts" class="badge subtle">0 artifacts</span>
+            </div>
+          </header>
+
+          <div class="agent-grid" id="agentGrid"></div>
+
+          <div class="split">
+            <div class="card">
+              <h3>Live trace</h3>
+              <pre id="trace" class="trace"></pre>
+            </div>
+            <div class="card">
+              <h3>Artifacts</h3>
+              <ul id="artifacts" class="artifact-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/ui/app.js"></script>
+  </body>
+</html>

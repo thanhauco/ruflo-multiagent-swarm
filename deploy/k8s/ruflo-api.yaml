@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ruflo-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ruflo-api
+  template:
+    metadata:
+      labels:
+        app: ruflo-api
+    spec:
+      containers:
+        - name: ruflo-api
+          image: ruflo-api:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: RUFLO_WORKERS
+              value: "4"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ruflo-api
+spec:
+  selector:
+    app: ruflo-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
